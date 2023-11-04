@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gujarat Police</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand fs-4" href="index.html"><img src="images/gujaratpolice.logo.png"
+          class="img-fluid nav-logo" /> Gujarat
+        Police Feedback</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end fs-6" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="contact_details.html"><i class="fa-solid fa-phone"></i> Contact Details</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid custom-main">
+      <div class="row">
+        <div class="col-12">
+          <div class="center-container">
+            <img src="images/gujaratpolice_bg.png" class="img-fluid img-thumbnail mt-5" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="h2 text-light text-center">Welcome to</div>
+          <div class="h2 text-light text-center">Gujarat Police Feedback Management System</div>
+        </div>
+      </div>
+      <form action="verification.php" method="post">
+        <div class="row mt-3">
+          <div class="col-8 offset-2 mb-3">
+            <select class="form-select" id="districtSelect" onchange="populatePoliceStations()">
+              <option value="">Select District</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Surat">Surat</option>
+              <!-- Add more district options here -->
+            </select>
+          </div>
+          <div class="col-8 offset-2 mb-2">
+            <select class="form-select" id="policeStationSelect">
+              <option value="">Select Police Station</option>
+            </select>
+          </div>
+          <div class="col-8 offset-2 mb-2">
+            <label for="mobile_number" class="form-label text-light">Aadhar verified number</label>
+            <input type="number" name="mobile_number" id="mobile_number" class="form-control"
+              placeholder="Enter your Aadhar verified number" required />
+          </div>
+          <div class="col-12 text-center mt-2">
+            <div class="d-grid gap-2 col-2 mx-auto">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+  <script>
+    const policeStations = {
+      "Ahmedabad": ["Police Station 1", "Police Station 2", "Police Station 3"],
+      "Surat": ["Police Station A", "Police Station B", "Police Station C"]
+      // Add more districts and their police stations here
+    };
+
+    function populatePoliceStations() {
+      const districtSelect = document.getElementById("districtSelect");
+      const policeStationSelect = document.getElementById("policeStationSelect");
+      const selectedDistrict = districtSelect.value;
+
+      // Clear existing options
+      policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+
+      // Populate with police stations based on the selected district
+      if (selectedDistrict in policeStations) {
+        const stations = policeStations[selectedDistrict];
+        stations.forEach((station) => {
+          const option = document.createElement("option");
+          option.value = station;
+          option.text = station;
+          policeStationSelect.appendChild(option);
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+}
+
+/* .navbar {
+    height: 80px;
+  } */
+.custom-main {
+    background-image: url(images/background_image.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    /* overflow: scroll; */
+    
+}
+
+.nav-logo {
+    padding-left: 5px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact {
+    background-image: url(images/background_image.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.custom-select {
+    width: 80%;
+}
+ /* Styles for the sidebar */
+ .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    color: #ffcc00;
+}
+
+.user-icon {
+    cursor: pointer;
+}
+
+/* Styles for the main content */
+.content {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+}
