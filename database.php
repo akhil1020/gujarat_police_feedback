@@ -3,5 +3,5 @@ $_SERVERname="localhost";
 $username="root";
 $password="";
 $database="library";
-$con=mysqli_connect();
+$con =mysqli_connect();
 ?>
